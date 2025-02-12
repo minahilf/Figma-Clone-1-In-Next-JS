@@ -1,5 +1,7 @@
+'use client'
 import Image from "next/image";
 import bell from "../../../Assets/bell.png"
+import { motion } from "framer-motion";
 
 import { Comfortaa } from "next/font/google";
 const comfortaa = Comfortaa({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-comfortaa" });
@@ -21,7 +23,12 @@ export default function Products() {
         }
     ]
     return (
-        <div className={`${comfortaa.variable} bg-[#CBE4DE] mt-6 pb-6`}>
+        <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false }}
+       className={`${comfortaa.variable} bg-[#CBE4DE] mt-6 pb-6` }>
             <h1 className="font-bold font-comfortaa text-[28px] text-center p-4 lg:text-[32px]">Our Products</h1>
             <div className="flex justify-center">
             <p className="text-center text-[16px] font-comfortaa pl-2 pr-2 text-[#888888] lg:text-[18px] xl:w-[60%]">We will Deliver the best stories and ideas on the topics you care about most straight to your homepage, app, or inbox.</p>
@@ -43,6 +50,8 @@ export default function Products() {
         ))}
     </div>
 </div>
-        </div>
+</motion.div>
+     
+      
     )
 }

@@ -1,13 +1,20 @@
+'use client'
 import Image from "next/image";
 import web1 from "../../../Assets/web1.png"
 import web2 from "../../../Assets/web2.png"
+import { motion } from "framer-motion";
 
 import { Comfortaa } from "next/font/google";
 const comfortaa = Comfortaa({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-comfortaa" });
 
 export default function Website() {
     return (
-        <div className={`${comfortaa.variable}  mt-6`}>
+        <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false }}
+        className={`${comfortaa.variable}  mt-6`}>
             <h1 className="font-bold font-comfortaa text-[28px] text-center p-4 lg:text-[32px]">Build Better Websites With Us</h1>
             <div className="flex justify-center">
             <p className="text-center text-[16px] font-comfortaa pl-2 pr-2 text-[#888888] lg:text-[18px] lg:w-[60%]">When you get staright to the point the presentation looks attractive on your web pages. Keep it simple and clean always.</p>
@@ -30,6 +37,6 @@ export default function Website() {
                     <p className="text-center font-comfortaa font-semibold text-[16px] lg:text-[18px] text-[#888888] sm:text-left lg:w-[60%] xl:text-[22px]">When you get staright to the point the presentation looks attractive on your web pages.</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

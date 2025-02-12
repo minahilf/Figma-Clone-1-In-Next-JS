@@ -1,12 +1,18 @@
+'use client'
 import Image from "next/image";
 import guy from "../../../Assets/guy.png"
-
+import { motion } from "framer-motion";
 import { Comfortaa } from "next/font/google";
 const comfortaa = Comfortaa({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-comfortaa" });
 
 export default function Customer() {
     return (
-        <div className={`${comfortaa.variable} p-4 flex flex-col justify-center items-center`}>
+        <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false }}
+         className={`${comfortaa.variable} p-4 flex flex-col justify-center items-center`}>
             <h1 className="text-[#2E4F4F] text-center font-comfortaa text-[28px] font-bold">Customers Say Nice Things</h1>
             <div className="flex justify-center items-center">
             <p className="text-center font-comfortaa text-[14px] text-[#2E4F4F] lg:w-[50%]">We have very fair pricing policy that would benefit you and us at the same time. Get the free plan & if you need more pay.</p>
@@ -23,6 +29,6 @@ export default function Customer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
